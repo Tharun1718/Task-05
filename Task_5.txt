@@ -1,0 +1,289 @@
+//Question-1
+//printing odd numbers using anonymous function
+let printodds=function(array){              
+    for(let element of array){
+        if(element % 2 !=0){
+            console.log(element);
+        }
+    }
+    }
+    array1=[12,13,14,15,16,17,18,19,20];
+    printodds(array1);
+
+//printing odd numbers using IIFE
+let array1=[12,13,14,15,16,17,18,19,20];      E
+((array)=>{
+    for(let element of array){
+        if(element % 2 !=0){
+            console.log(element);
+        }
+    }
+})(array1);
+
+/*OUTPUT:
+13
+15
+17
+19
+*/
+
+//converting strings to titlecase using anonymous function
+let array2=["ravi","rahul","kiran","john"];      
+let titlecase=function(array){
+    let titlecasearray=[];
+    for(let i=0;i<array.length;i++){
+     let ans=array[i].charAt(0).toUpperCase() + array[i].slice(1);
+     titlecasearray.push(ans);
+}
+console.log(titlecasearray);
+}
+titlecase(array2);
+
+//converting strings to titlecase using IIFE
+let array2=["ravi","rahul","kiran","john"];
+((array)=>{
+    let titlecasearray=[];
+    for(let i=0;i<array.length;i++){
+     let ans=array[i].charAt(0).toUpperCase() + array[i].slice(1);
+     titlecasearray.push(ans);
+}
+console.log(titlecasearray);
+})(array2);
+//output:
+//[ 'Ravi', 'Rahul', 'Kiran', 'John' ]
+
+//sum of array elements using anonymous function
+let getsum=function(array){
+    sum=0;
+    for(let data of array){
+        sum+=data;
+    }
+    return(sum);
+}
+arrayNum=[10,20,30,40,50];
+console.log(getsum(arrayNum));
+
+//sum of array elements using IIFE
+array1=[10,20,30,40,50];
+((array)=>{
+    sum=0;
+    for(let data of array){
+        sum+=data;
+    }
+    console.log(sum);
+})(array1);
+
+//output: 150
+
+//return all prime numbers in an array using anonymous function
+let primes=function(num){
+    for (let i = 2; i < num; i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return num > 1;
+  }
+
+  let array = [-3,-1,0,3,5,7,9,11,17,46,77,101];
+  console.log(array.filter(primes));
+
+
+//return all prime numbers in an array using IIFE
+(()=>{
+    let array=[-3,-1,0,3,5,7,9,11,17,46,77,101];
+    let primes=array.filter(value=>{
+        for(let i=2;i<value;i++){
+            if(value% i === 0){ return false;}
+        }
+        return value >1;
+    });
+    console.log(primes);
+})();
+
+//output
+//[ 3, 5, 7, 11, 17, 101 ]
+
+
+//return all palindromes in an array using anonymous function
+let getpalindromes=function(str){
+    let len = str.length;
+    let mid = Math.floor(len/2);
+    for ( let i = 0; i < mid; i++ ){
+        if (str[i] !== str[len - 1 - i]){
+            return false;
+        }
+    }
+    return str;
+}
+strarray=['mom','dad','brother','12321','sister'];
+console.log(strarray.filter(getpalindromes));
+
+
+//return all palindromes using IIFE
+function isPalindrome(str1){
+    let a = str1;
+    str1 = a.split('').reverse().join('');
+    return str1 == a;
+}
+((arr,len)=>{
+    let array= [];
+    for (let i = 0; i < len; i++) {
+    if (isPalindrome(arr[i])){
+            array.push(arr[i]);
+        }
+    }
+    console.log(array);
+})(['mom','dad','brother','12321','sister'],5);
+
+//output: 
+//[ 'mom', 'dad', '12321' ]
+
+// return median of an two sorted array using anonymous function
+let array1=[2,3,6,5];
+let array2=[9,8,7,4];
+let median=function(arr1,arr2){
+
+    let concatedArr=arr1.concat(arr2);
+    let sortedArr=concatedArr.sort((a,b)=>{return a-b});
+    let length=sortedArr.length;
+    if(length % 2 == 1){
+        return sortedArr[(length/2)-0.5];
+    }else{
+        return (sortedArr[(length/2)]+sortedArr[(length/2)-1])/2;
+    }
+}
+console.log(`Median: ${median(array1,array2)}`);
+
+//output: Median: 5.5
+
+// return median of two sorted arrays using IIFE
+let array1=[2,3,6,5];
+let array2=[9,8,7,4];
+(function(arr1,arr2){
+    let concatedArr=arr1.concat(arr2);
+    let sortedArr=concatedArr.sort((a,b)=>{return a-b});
+    let length=sortedArr.length;
+    if(length % 2 == 1){
+         console.log(sortedArr[(length/2)-0.5]);
+    }else{
+         console.log((sortedArr[(length/2)]+sortedArr[(length/2)-1])/2);
+    }
+
+})(array1,array2);
+//output: 5.5 
+
+
+//remove duplicates from an array using anonymous function
+let removeDuplicates=function(array){
+    return[...new Set(array)];
+}
+let nameArray = ["kohli", "dhoni", "rohit", "pandya", "kohli", "dhoni"];
+console.log(removeDuplicates(nameArray));
+
+//remove duplicates from an array using IIFE
+let nameArray = ["kohli", "dhoni", "rohit", "pandya", "kohli", "dhoni"];
+((array)=>{
+   console.log([...new Set(array)]); 
+})(nameArray);
+
+//output: [ 'kohli', 'dhoni', 'rohit', 'pandya' ]
+
+//rotate an array by K times using anonymous function
+let rotateArray=function(num,k){
+    for(let i=0;i<k;i++){
+        num.unshift(num.pop());
+    }
+    return num;
+}
+let arrayinput=[7,8,9,10,11,12];
+console.log(rotateArray(arrayinput,2));
+
+//rotate an array by k times using IIFE
+let arrayinput=[7,8,9,10,11,12];
+(function(array,k){
+    for(let i=0;i<k;i++){
+        array.unshift(array.pop());
+    }
+    console.log(array);
+})(arrayinput,2);
+
+// output:
+// [ 11, 12, 7, 8, 9, 10 ]
+
+//Question 3: Using arrow function
+//print odd numbers in an array
+let getOddNumbers = (array) => {
+    
+    for (num of array){	
+        if (num % 2 != 0) {       
+           console.log(num);
+        }
+    }
+}
+let array1=[34,56,77,13,42];
+getOddNumbers(array1);
+
+//Output:
+//77
+//13
+
+//convert string to title case
+let titlecasestr=(array)=>{
+    let titlecasearray=[];
+    for(let i=0;i<array.length;i++){
+     let ans=array[i].charAt(0).toUpperCase() + array[i].slice(1);
+     titlecasearray.push(ans);
+}
+console.log(titlecasearray);
+}
+let array2=["ravi","rahul","kiran","john"];
+titlecasestr(array2);
+
+//output
+//[ 'Ravi', 'Rahul', 'Kiran', 'John' ]
+
+//sum of array elements
+let sumofall=(array)=>{
+    let sum=0;
+    for(num of array){
+        sum+=num;   
+    }
+    console.log(sum);
+}
+let numarray=[10,20,30,40,50,100];
+sumofall(numarray);
+//Output:
+//250
+
+//return prime numbers
+let getPrime=(num)=>{
+    for (let i = 2; i < num; i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return num > 1;
+  }
+  let array = [-3,-1,0,3,5,7,9,11,17,46,77,101];
+  console.log(array.filter(getPrime));
+//output
+// [ 3, 5, 7, 11, 17, 101 ]
+
+//return all palindromes 
+let getpalindrome=(string)=>{
+    let len = string.length;
+    let mid = Math.floor(len/2);
+    for ( let i = 0; i < mid; i++ ) {
+        if (string[i] !== string[len - 1 - i]) {
+            return false;
+        }
+    }
+    return string;
+}
+stringarray=['mom','dad','brother','12321','sister'];
+console.log(stringarray.filter(getpalindrome));
+
+//output: 
+// [ 'mom', 'dad', '12321' ]
+
